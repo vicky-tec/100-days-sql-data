@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 21 - Amazon Subscription Churn Challenge</title>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D4B22G41TP');
+    </script>
+<style>
+* {margin: 0;padding: 0;box-sizing: border-box;}
+body {font-family: Arial, sans-serif;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);min-height: 100vh;padding: 20px;}
+.container {max-width: 900px;margin: 0 auto;}
+.section {background: white;border-radius: 15px;padding: 50px;margin-bottom: 30px;box-shadow: 0 10px 40px rgba(0,0,0,0.3);}
+.cover-section {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);color: white;text-align: center;min-height: 500px;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.cover-section h1 {font-size: 52px;margin-bottom: 15px;}
+.day-badge {font-size: 36px;background: rgba(255,255,255,0.2);padding: 20px 50px;border-radius: 50px;margin: 30px 0;font-weight: bold;}
+.cover-section .subtitle {font-size: 28px;margin-bottom: 50px;}
+.cover-section p {font-size: 20px;line-height: 2;}
+h2 {color: #667eea;font-size: 30px;margin-bottom: 20px;border-bottom: 3px solid #667eea;padding-bottom: 10px;}
+h3 {color: #764ba2;font-size: 20px;margin-top: 20px;margin-bottom: 12px;}
+p {line-height: 1.7;font-size: 15px;color: #333;margin-bottom: 12px;}
+.link-box {background: #dbeafe;border: 3px solid #3b82f6;padding: 25px;border-radius: 10px;margin: 20px 0;text-align: center;}
+.link-box h3 {color: #1e40af;font-size: 20px;margin-bottom: 15px;}
+.link-box p {color: #1e40af;font-size: 14px;margin: 10px 0;}
+.link-box a {display: inline-block;background: white;color: #1e40af;font-size: 14px;font-weight: bold;padding: 12px 25px;border-radius: 6px;margin: 10px 5px;text-decoration: none;transition: all 0.3s;}
+.link-box a:hover {background: #1e40af;color: white;transform: translateY(-2px);}
+.link-box small {color: #6b7280;font-size: 13px;display: block;margin-top: 10px;}
+table {width: 100%;border-collapse: collapse;margin: 15px 0;font-size: 13px;}
+table th {background: #667eea;color: white;padding: 10px;text-align: left;}
+table td {border: 1px solid #e2e8f0;padding: 10px;}
+table tr:nth-child(even) {background: #f7fafc;}
+.requirement-box {background: #fef3c7;border-left: 5px solid #f59e0b;padding: 15px;margin: 15px 0;border-radius: 5px;}
+.requirement-box strong {color: #d97706;font-size: 16px;display: block;margin-bottom: 8px;}
+ul {margin-left: 20px;line-height: 1.6;}
+ul li {margin: 8px 0;font-size: 14px;}
+.final-section {text-align: center;}
+.final-section h2 {color: #667eea;font-size: 42px;border: none;margin-bottom: 30px;}
+.social-links {margin: 40px 0;}
+.social-btn {display: inline-block;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);color: white;padding: 15px 40px;margin: 10px;border-radius: 30px;text-decoration: none;font-size: 16px;font-weight: bold;transition: all 0.3s;}
+.social-btn:hover {opacity: 0.9;transform: translateY(-3px);}
+.practice-box {background: #f0fdf4;padding: 25px;border-radius: 15px;max-width: 500px;margin: 30px auto;}
+.practice-box h3 {color: #047857;font-size: 22px;margin-bottom: 12px;}
+.practice-box p {color: #065f46;font-size: 15px;line-height: 1.8;}
+.signature {font-size: 14px;color: #888;margin-top: 30px;text-align: center;}
+@media (max-width: 768px) {
+.section {padding: 30px 20px;}
+.cover-section h1 {font-size: 36px;}
+.day-badge {font-size: 28px;padding: 15px 30px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- COVER SECTION -->
+<div class="section cover-section">
+<div>
+<h1>📚 100 DAYS SQL</h1>
+<h1>CODING CHALLENGE</h1>
+<div class="day-badge">DAY 21</div>
+<div class="subtitle">Master SQL One Problem at a Time</div>
+<p>
+✨ Daily SQL Problems<br>
+✨ Real-World Scenarios<br>
+✨ Complete Solutions<br>
+✨ Interview Ready
+</p>
+</div>
+</div>
+
+<!-- DATA & TABLES SECTION -->
+<div class="section">
+<div class="link-box">
+<h3>📊 Download Practice Dataset</h3>
+<p>Click this link to get the CSV files:</p>
+<a href="https://rahulkanche.github.io/100-days-sql-data/day-21-data.html" target="_blank">Get Dataset</a>
+<small>(4 tables: subscriptions, users, plans, payment_history)</small>
+</div>
+
+<h2>📦 Amazon Subscription Churn & Renewal Analysis</h2>
+<p>Amazon's subscription team needs comprehensive churn analysis to reduce cancellations, optimize pricing, and predict renewal patterns.</p>
+
+<h3>Table 1: subscriptions</h3>
+<table>
+<tr>
+<th>subscription_id</th>
+<th>user_id</th>
+<th>plan_id</th>
+<th>start_date</th>
+<th>end_date</th>
+<th>status</th>
+</tr>
+<tr><td> SUB001 </td><td>U1001</td><td>p01</td><td>2023-01-15</td><td>2024-01-15</td><td>active</td></tr>
+<tr><td>sub002</td><td> u1002 </td><td>P02</td><td>15/06/2023</td><td>NULL</td><td>CANCELLED</td></tr>
+<tr><td>SUB003</td><td>U1003</td><td>p01</td><td>2023-03-20</td><td>2024-03-20</td><td>Active</td></tr>
+<tr><td>Sub004</td><td>u1004</td><td> P03 </td><td>2023/07/10</td><td>10-01-2024</td><td>expired</td></tr>
+</table>
+
+<h3>Table 2: users</h3>
+<table>
+<tr>
+<th>user_id</th>
+<th>user_name</th>
+<th>country</th>
+</tr>
+<tr><td>U1001</td><td>alice johnson</td><td>USA</td></tr>
+<tr><td> u1002 </td><td>BOB SMITH</td><td>uk</td></tr>
+<tr><td>U1003</td><td> Carlos Martinez </td><td>SPAIN</td></tr>
+<tr><td>u1004</td><td>DIANA CHEN</td><td>china</td></tr>
+</table>
+
+<h3>Table 3: plans</h3>
+<table>
+<tr>
+<th>plan_id</th>
+<th>plan_name</th>
+<th>price_monthly</th>
+<th>billing_cycle</th>
+</tr>
+<tr><td>p01</td><td>Prime Monthly</td><td>14.99</td><td>monthly</td></tr>
+<tr><td> P02 </td><td>PRIME ANNUAL</td><td>139.00</td><td>yearly</td></tr>
+<tr><td>p03</td><td>Student Prime</td><td>7.49</td><td>MONTHLY</td></tr>
+<tr><td>P04</td><td>family plan</td><td>19.99</td><td>Monthly</td></tr>
+</table>
+
+<h3>Table 4: payment_history</h3>
+<table>
+<tr>
+<th>payment_id</th>
+<th>subscription_id</th>
+<th>payment_date</th>
+<th>amount</th>
+<th>payment_status</th>
+</tr>
+<tr><td>PAY001</td><td> SUB001 </td><td>2023-01-15</td><td>14.99</td><td>success</td></tr>
+<tr><td>pay002</td><td>sub002</td><td>15/06/2023</td><td>139.00</td><td>FAILED</td></tr>
+<tr><td>PAY003</td><td>SUB003</td><td>2023-03-20</td><td>14.99</td><td>Success</td></tr>
+</table>
+
+<p style="font-size: 13px; color: #6b7280; font-style: italic;">Download full dataset above (30+ rows per table)</p>
+</div>
+
+<!-- REQUIREMENTS SECTION -->
+<div class="section">
+<h2>📋 Challenge Requirements</h2>
+<p style="font-size: 17px; color: #764ba2; font-weight: bold; margin-bottom: 20px;">Build comprehensive churn analysis system for Amazon's subscription business.</p>
+
+<div class="requirement-box">
+<strong>🧹 Data Cleaning & Standardization:</strong>
+<ul>
+<li>Standardize all IDs: uppercase, trim whitespace</li>
+<li>Clean user names: proper case</li>
+<li>Standardize dates: convert all formats to YYYY-MM-DD</li>
+<li>Handle NULL end_dates (ongoing subscriptions)</li>
+<li>Standardize status values: uppercase</li>
+<li>Handle NULL payment amounts</li>
+</ul>
+</div>
+
+<div class="requirement-box">
+<strong>🔗 Complex Multi-Table Analysis:</strong>
+<ul>
+<li>JOIN subscriptions → users → plans → payment_history</li>
+<li>Calculate subscription_duration_days for each user</li>
+<li>Identify churned users (cancelled/expired vs active)</li>
+<li>Calculate total_revenue_per_user across all subscriptions</li>
+<li>Detect payment failures leading to cancellations</li>
+<li>Calculate monthly recurring revenue (MRR) by plan</li>
+</ul>
+</div>
+
+<div class="requirement-box">
+<strong>⚠️ Advanced Churn & Renewal Metrics:</strong>
+<ul>
+<li>Calculate churn_rate percentage by plan type</li>
+<li>Identify at-risk users (active but with payment failures)</li>
+<li>Find renewal_rate for users who completed one cycle</li>
+<li>Calculate average_subscription_lifetime by country</li>
+<li>Segment users: loyal (2+ renewals), trial (1 sub), churned</li>
+<li>Calculate revenue_loss from churned subscriptions</li>
+<li>Identify best-performing plan by retention rate</li>
+</ul>
+</div>
+
+<p style="margin-top: 20px; font-size: 16px; color: #047857; font-weight: bold;">💡 CASE, DATEDIFF, COALESCE, Multi-JOINs, GROUP BY, Subqueries!</p>
+</div>
+
+<!-- FINAL SECTION -->
+<div class="section final-section">
+<h2>🎉 Ready to Solve?</h2>
+<p style="font-size: 18px; color: #764ba2; font-weight: bold; margin-bottom: 25px;">Download the PDF for complete solution with hints!</p>
+
+<div class="link-box" style="max-width: 550px; margin: 0 auto 35px;">
+<h3>🔗 Connect & Stay Updated</h3>
+<p>Follow my SQL journey:</p>
+<a href="https://linkedin.com/in/rahulkanche" target="_blank">LinkedIn</a>
+<a href="https://github.com/rahulkanche/100-days-sql-data" target="_blank">GitHub</a>
+<small>Access all 100 challenges!</small>
+</div>
+
+<div class="practice-box">
+<h3>💪 Keep Practicing!</h3>
+<p>
+Master subscription analytics<br>
+Build churn prediction models<br>
+Analyze retention with SQL
+</p>
+</div>
+
+<p style="font-size: 18px; color: #667eea; font-weight: bold; margin-top: 30px;">Day 22 coming tomorrow!</p>
+<p class="signature">Rahul Kanche — exploring data, decoding clarity!</p>
+</div>
+
+</div>
+</body>
+</html>
