@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 22 - BSNL Telecom CDR Challenge</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-D4B22G41TP');
+    </script>
+<style>
+* {margin: 0;padding: 0;box-sizing: border-box;}
+body {font-family: Arial, sans-serif;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);min-height: 100vh;padding: 20px;}
+.container {max-width: 900px;margin: 0 auto;}
+.section {background: white;border-radius: 15px;padding: 50px;margin-bottom: 30px;box-shadow: 0 10px 40px rgba(0,0,0,0.3);}
+.cover-section {background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);color: white;text-align: center;min-height: 500px;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.cover-section h1 {font-size: 52px;margin-bottom: 15px;}
+.day-badge {font-size: 36px;background: rgba(255,255,255,0.2);padding: 20px 50px;border-radius: 50px;margin: 30px 0;font-weight: bold;}
+.cover-section .subtitle {font-size: 28px;margin-bottom: 50px;}
+.cover-section p {font-size: 20px;line-height: 2;}
+h2 {color: #667eea;font-size: 30px;margin-bottom: 20px;border-bottom: 3px solid #667eea;padding-bottom: 10px;}
+h3 {color: #764ba2;font-size: 20px;margin-top: 20px;margin-bottom: 12px;}
+p {line-height: 1.7;font-size: 15px;color: #333;margin-bottom: 12px;}
+.link-box {background: #dbeafe;border: 3px solid #3b82f6;padding: 25px;border-radius: 10px;margin: 20px 0;text-align: center;}
+.link-box h3 {color: #1e40af;font-size: 20px;margin-bottom: 15px;}
+.link-box p {color: #1e40af;font-size: 14px;margin: 10px 0;}
+.link-box a {display: inline-block;background: white;color: #1e40af;font-size: 14px;font-weight: bold;padding: 12px 25px;border-radius: 6px;margin: 10px 5px;text-decoration: none;transition: all 0.3s;}
+.link-box a:hover {background: #1e40af;color: white;transform: translateY(-2px);}
+.link-box small {color: #6b7280;font-size: 13px;display: block;margin-top: 10px;}
+table {width: 100%;border-collapse: collapse;margin: 15px 0;font-size: 13px;}
+table th {background: #667eea;color: white;padding: 10px;text-align: left;}
+table td {border: 1px solid #e2e8f0;padding: 10px;}
+table tr:nth-child(even) {background: #f7fafc;}
+.requirement-box {background: #fef3c7;border-left: 5px solid #f59e0b;padding: 15px;margin: 15px 0;border-radius: 5px;}
+.requirement-box strong {color: #d97706;font-size: 16px;display: block;margin-bottom: 8px;}
+ul {margin-left: 20px;line-height: 1.6;}
+ul li {margin: 8px 0;font-size: 14px;}
+.final-section {text-align: center;}
+.final-section h2 {color: #667eea;font-size: 42px;border: none;margin-bottom: 30px;}
+.social-links {margin: 40px 0;}
+.social-btn {display: inline-block;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);color: white;padding: 15px 40px;margin: 10px;border-radius: 30px;text-decoration: none;font-size: 16px;font-weight: bold;transition: all 0.3s;}
+.social-btn:hover {opacity: 0.9;transform: translateY(-3px);}
+.practice-box {background: #f0fdf4;padding: 25px;border-radius: 15px;max-width: 500px;margin: 30px auto;}
+.practice-box h3 {color: #047857;font-size: 22px;margin-bottom: 12px;}
+.practice-box p {color: #065f46;font-size: 15px;line-height: 1.8;}
+.signature {font-size: 14px;color: #888;margin-top: 30px;text-align: center;}
+@media (max-width: 768px) {
+.section {padding: 30px 20px;}
+.cover-section h1 {font-size: 36px;}
+.day-badge {font-size: 28px;padding: 15px 30px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- COVER SECTION -->
+<div class="section cover-section">
+<div>
+<h1>📚 100 DAYS SQL</h1>
+<h1>CODING CHALLENGE</h1>
+<div class="day-badge">DAY 22</div>
+<div class="subtitle">Master SQL One Problem at a Time</div>
+<p>
+✨ Daily SQL Problems<br>
+✨ Real-World Scenarios<br>
+✨ Complete Solutions<br>
+✨ Interview Ready
+</p>
+</div>
+</div>
+
+<!-- DATA & TABLES SECTION -->
+<div class="section">
+<div class="link-box">
+<h3>📊 Download Practice Dataset</h3>
+<p>Click this link to get the CSV files:</p>
+<a href="https://rahulkanche.github.io/100-days-sql-data/day-22-data.html" target="_blank">Get Dataset</a>
+<small>(4 tables: call_records, customers, towers, plans)</small>
+</div>
+
+<h2>📞 BSNL Telecom Call Detail Records (CDR) Analysis</h2>
+<p>BSNL needs CDR analysis for revenue optimization, network planning, fraud detection, and usage pattern tracking.</p>
+
+<h3>Table 1: call_records</h3>
+<table>
+<tr>
+<th>call_id</th>
+<th>caller_number</th>
+<th>receiver_number</th>
+<th>call_datetime</th>
+<th>duration_sec</th>
+<th>call_type</th>
+</tr>
+<tr><td> CALL001 </td><td>9876543210</td><td>9123456789</td><td>2024-01-15 08:30:15</td><td>125</td><td>local</td></tr>
+<tr><td>call002</td><td> 9988776655 </td><td>8765432109</td><td>15/01/2024 09:15:30</td><td>NULL</td><td>STD</td></tr>
+<tr><td>CALL003</td><td>9123456789</td><td> 9876543210 </td><td>2024/01/15 10:45:00</td><td>89</td><td>Local</td></tr>
+<tr><td>Call004</td><td>8765432109</td><td>9988776655</td><td>2024-01-15 14:20:45</td><td>342</td><td>ISD</td></tr>
+</table>
+
+<h3>Table 2: customers</h3>
+<table>
+<tr>
+<th>phone_number</th>
+<th>customer_name</th>
+<th>plan_id</th>
+<th>circle</th>
+</tr>
+<tr><td>9876543210</td><td>rajesh kumar</td><td>P01</td><td>DELHI</td></tr>
+<tr><td> 9988776655 </td><td>PRIYA SHARMA</td><td>p02</td><td>mumbai</td></tr>
+<tr><td>9123456789</td><td> Amit Patel </td><td>P01</td><td>Gujarat</td></tr>
+<tr><td>8765432109</td><td>sunita devi</td><td> P03 </td><td>BIHAR</td></tr>
+</table>
+
+<h3>Table 3: towers</h3>
+<table>
+<tr>
+<th>tower_id</th>
+<th>tower_location</th>
+<th>circle</th>
+<th>tower_type</th>
+</tr>
+<tr><td>T001</td><td>Connaught Place</td><td>DELHI</td><td>4G</td></tr>
+<tr><td> t002 </td><td>BANDRA WEST</td><td>mumbai</td><td>5g</td></tr>
+<tr><td>T003</td><td> Ahmedabad City </td><td>Gujarat</td><td>4G</td></tr>
+</table>
+
+<h3>Table 4: plans</h3>
+<table>
+<tr>
+<th>plan_id</th>
+<th>plan_name</th>
+<th>monthly_rental</th>
+<th>free_minutes</th>
+</tr>
+<tr><td>P01</td><td>Basic Plan</td><td>199.00</td><td>100</td></tr>
+<tr><td> p02 </td><td>PREMIUM PLAN</td><td>499.00</td><td>500</td></tr>
+<tr><td>P03</td><td>unlimited plan</td><td>799.00</td><td>NULL</td></tr>
+</table>
+
+<p style="font-size: 13px; color: #6b7280; font-style: italic;">Download full dataset above (30+ rows per table)</p>
+</div>
+
+<!-- REQUIREMENTS SECTION -->
+<div class="section">
+<h2>📋 Challenge Requirements</h2>
+<p style="font-size: 17px; color: #764ba2; font-weight: bold; margin-bottom: 20px;">Build comprehensive CDR analysis system for BSNL's telecom operations.</p>
+
+<div class="requirement-box">
+<strong>🧹 Data Cleaning:</strong>
+<ul>
+<li>Standardize IDs: uppercase, trim</li>
+<li>Clean phone numbers: remove spaces</li>
+<li>Standardize names: proper case</li>
+<li>Standardize datetime formats</li>
+<li>Handle NULL/0 duration (failed calls)</li>
+<li>Standardize call_type, circles, tower_type</li>
+</ul>
+</div>
+
+<div class="requirement-box">
+<strong>🔗 Multi-Table Analysis:</strong>
+<ul>
+<li>Self-JOIN customers (caller & receiver)</li>
+<li>JOIN towers and circles</li>
+<li>JOIN plans for billing</li>
+<li>Calculate call duration in minutes</li>
+<li>Track peak calling hours</li>
+<li>Identify inter-circle vs intra-circle calls</li>
+</ul>
+</div>
+
+<div class="requirement-box">
+<strong>⚠️ Revenue & Fraud Detection:</strong>
+<ul>
+<li>Calculate billable_minutes (total - free)</li>
+<li>Calculate revenue per customer</li>
+<li>Detect unusual patterns (duration > 2 hours)</li>
+<li>Flag excessive calling (10+ calls/day)</li>
+<li>Identify customers exceeding limits</li>
+<li>Calculate revenue_loss from failed calls</li>
+<li>Segment users: heavy, normal, light</li>
+</ul>
+</div>
+
+<p style="margin-top: 20px; font-size: 16px; color: #047857; font-weight: bold;">💡 Window Functions, HOUR(), Self-JOINs, Subqueries, CTEs!</p>
+</div>
+
+<!-- FINAL SECTION -->
+<div class="section final-section">
+<h2>🎉 Ready to Solve?</h2>
+<p style="font-size: 18px; color: #764ba2; font-weight: bold; margin-bottom: 25px;">Download the PDF for complete solution with hints!</p>
+
+<div class="link-box" style="max-width: 550px; margin: 0 auto 35px;">
+<h3>🔗 Connect & Stay Updated</h3>
+<p>Follow my SQL journey:</p>
+<a href="https://linkedin.com/in/rahulkanche" target="_blank">LinkedIn</a>
+<a href="https://github.com/rahulkanche/100-days-sql-data" target="_blank">GitHub</a>
+<small>Access all 100 challenges!</small>
+</div>
+
+<div class="practice-box">
+<h3>💪 Keep Practicing!</h3>
+<p>
+Master telecom analytics<br>
+Build CDR analysis systems<br>
+Detect fraud with SQL
+</p>
+</div>
+
+<p style="font-size: 18px; color: #667eea; font-weight: bold; margin-top: 30px;">Day 23 coming tomorrow!</p>
+<p class="signature">Rahul Kanche — exploring data, decoding clarity!</p>
+</div>
+
+</div>
+</body>
+</html>
