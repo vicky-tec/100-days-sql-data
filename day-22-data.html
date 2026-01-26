@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 22 - Dataset Download</title>
+<style>
+* {margin: 0;padding: 0;box-sizing: border-box;}
+body {font-family: Arial, sans-serif;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);min-height: 100vh;padding: 20px;}
+.container {max-width: 1200px;margin: 0 auto;}
+.hero {background: white;border-radius: 15px;padding: 50px;margin-bottom: 30px;text-align: center;box-shadow: 0 10px 40px rgba(0,0,0,0.3);}
+.hero h1 {color: #667eea;font-size: 42px;margin-bottom: 15px;}
+.hero p {font-size: 18px;color: #666;margin-bottom: 20px;}
+.badge {display: inline-block;background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);color: white;padding: 8px 20px;border-radius: 20px;font-size: 14px;margin: 5px;}
+.table-card {background: white;border-radius: 15px;padding: 40px;margin-bottom: 30px;box-shadow: 0 10px 40px rgba(0,0,0,0.3);}
+.table-card h2 {color: #667eea;font-size: 28px;margin-bottom: 20px;}
+table {width: 100%;border-collapse: collapse;margin: 20px 0;font-size: 11px;}
+table th {background: #667eea;color: white;padding: 8px;text-align: left;font-weight: 600;}
+table td {border: 1px solid #e2e8f0;padding: 8px;}
+table tr:nth-child(even) {background: #f7fafc;}
+.download-btn {background: #10b981;color: white;border: none;padding: 12px 30px;border-radius: 8px;font-size: 16px;font-weight: bold;cursor: pointer;margin-top: 15px;transition: all 0.3s;}
+.download-btn:hover {background: #059669;transform: translateY(-2px);}
+.instructions {background: white;border-radius: 15px;padding: 40px;margin-bottom: 30px;box-shadow: 0 10px 40px rgba(0,0,0,0.3);}
+.instructions h2 {color: #667eea;font-size: 28px;margin-bottom: 20px;}
+.instructions h3 {color: #764ba2;font-size: 20px;margin-top: 20px;margin-bottom: 10px;}
+.instructions p {line-height: 1.7;font-size: 15px;color: #333;margin-bottom: 12px;}
+.code-block {background: #2d3748;color: #48bb78;padding: 15px;border-radius: 8px;font-family: 'Courier New', monospace;font-size: 13px;margin: 15px 0;overflow-x: auto;}
+.footer {text-align: center;color: white;padding: 30px;}
+.footer a {color: white;text-decoration: none;font-weight: bold;margin: 0 10px;}
+.footer a:hover {text-decoration: underline;}
+@media (max-width: 768px) {
+.hero, .table-card, .instructions {padding: 25px 20px;}
+.hero h1 {font-size: 32px;}
+table {font-size: 10px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HERO SECTION -->
+<div class="hero">
+<h1>📊 Day 22 Data Download</h1>
+<p>BSNL Telecom Call Detail Records (CDR) Analysis Dataset</p>
+<div>
+<span class="badge">Self-JOINs</span>
+<span class="badge">Time Analysis</span>
+<span class="badge">Revenue Calculation</span>
+<span class="badge">Fraud Detection</span>
+</div>
+</div>
+
+<!-- TABLE 1: CALL_RECORDS -->
+<div class="table-card">
+<h2>Table 1: call_records (30 rows)</h2>
+<table id="call_records">
+<thead>
+<tr>
+<th>call_id</th>
+<th>caller_number</th>
+<th>receiver_number</th>
+<th>call_datetime</th>
+<th>duration_sec</th>
+<th>call_type</th>
+<th>tower_id</th>
+</tr>
+</thead>
+<tbody>
+<tr><td> CALL001 </td><td>9876543210</td><td>9123456789</td><td>2024-01-15 08:30:15</td><td>125</td><td>local</td><td>T001</td></tr>
+<tr><td>call002</td><td> 9988776655 </td><td>8765432109</td><td>15/01/2024 09:15:30</td><td>NULL</td><td>STD</td><td>t002</td></tr>
+<tr><td>CALL003</td><td>9123456789</td><td> 9876543210 </td><td>2024/01/15 10:45:00</td><td>89</td><td>Local</td><td>T001</td></tr>
+<tr><td>Call004</td><td>8765432109</td><td>9988776655</td><td>2024-01-15 14:20:45</td><td>342</td><td>ISD</td><td> T003 </td></tr>
+<tr><td>CALL005</td><td> 9123456789 </td><td>7654321098</td><td>15-01-2024 16:55:20</td><td>0</td><td>local</td><td>t001</td></tr>
+<tr><td>call006</td><td>9876543210</td><td> 9988776655 </td><td>2024-01-16 07:10:30</td><td>256</td><td>LOCAL</td><td>T001</td></tr>
+<tr><td>CALL007</td><td>7654321098</td><td>9123456789</td><td>16/01/2024 11:25:45</td><td>178</td><td>std</td><td>t005</td></tr>
+<tr><td>Call008</td><td> 9988776655 </td><td>8765432109</td><td>2024/01/16 13:40:20</td><td>NULL</td><td>Local</td><td>T002</td></tr>
+<tr><td>CALL009</td><td>8765432109</td><td>9876543210</td><td>2024-01-16 15:15:00</td><td>8450</td><td>ISD</td><td>T003</td></tr>
+<tr><td>call010</td><td>9123456789</td><td> 7654321098 </td><td>16-01-2024 18:30:15</td><td>45</td><td>local</td><td>t001</td></tr>
+<tr><td> CALL011 </td><td>9876543210</td><td>9123456789</td><td>2024-01-17 09:05:30</td><td>310</td><td>LOCAL</td><td>T001</td></tr>
+<tr><td>CALL012</td><td>9988776655</td><td> 8765432109 </td><td>17/01/2024 10:20:45</td><td>189</td><td>Std</td><td>t002</td></tr>
+<tr><td>call013</td><td> 7654321098 </td><td>9988776655</td><td>2024/01/17 12:35:00</td><td>0</td><td>local</td><td>T005</td></tr>
+<tr><td>Call014</td><td>8765432109</td><td>9123456789</td><td>2024-01-17 14:50:20</td><td>267</td><td>LOCAL</td><td> T003 </td></tr>
+<tr><td>CALL015</td><td>9123456789</td><td>9876543210</td><td>17-01-2024 17:15:40</td><td>NULL</td><td>local</td><td>t001</td></tr>
+<tr><td>call016</td><td> 9876543210 </td><td>7654321098</td><td>2024-01-18 08:25:15</td><td>425</td><td>STD</td><td>T001</td></tr>
+<tr><td>CALL017</td><td>9988776655</td><td>9123456789</td><td>18/01/2024 11:40:30</td><td>198</td><td>Local</td><td>t002</td></tr>
+<tr><td>Call018</td><td>7654321098</td><td> 8765432109 </td><td>2024/01/18 13:55:45</td><td>356</td><td>isd</td><td>T005</td></tr>
+<tr><td>CALL019</td><td> 8765432109 </td><td>9988776655</td><td>2024-01-18 16:10:00</td><td>8920</td><td>ISD</td><td>T003</td></tr>
+<tr><td>call020</td><td>9123456789</td><td>9876543210</td><td>18-01-2024 19:25:20</td><td>67</td><td>LOCAL</td><td> t001 </td></tr>
+<tr><td>CALL021</td><td>9876543210</td><td> 9988776655 </td><td>2024-01-19 07:40:35</td><td>NULL</td><td>local</td><td>T001</td></tr>
+<tr><td>Call022</td><td> 9988776655 </td><td>7654321098</td><td>19/01/2024 10:55:50</td><td>289</td><td>Std</td><td>t002</td></tr>
+<tr><td>CALL023</td><td>7654321098</td><td>9123456789</td><td>2024/01/19 14:10:05</td><td>0</td><td>local</td><td>T005</td></tr>
+<tr><td>call024</td><td>8765432109</td><td> 9876543210 </td><td>2024-01-19 17:25:20</td><td>512</td><td>ISD</td><td>T003</td></tr>
+<tr><td> CALL025 </td><td>9123456789</td><td>8765432109</td><td>19-01-2024 20:40:35</td><td>234</td><td>LOCAL</td><td>t001</td></tr>
+<tr><td>CALL026</td><td> 9876543210 </td><td>9123456789</td><td>2024-01-20 09:55:50</td><td>378</td><td>local</td><td>T001</td></tr>
+<tr><td>call027</td><td>9988776655</td><td>8765432109</td><td>20/01/2024 13:10:05</td><td>NULL</td><td>STD</td><td> t002 </td></tr>
+<tr><td>Call028</td><td>7654321098</td><td> 9988776655 </td><td>2024/01/20 16:25:20</td><td>445</td><td>Local</td><td>T005</td></tr>
+<tr><td>CALL029</td><td> 8765432109 </td><td>7654321098</td><td>2024-01-20 19:40:35</td><td>8765</td><td>isd</td><td>T003</td></tr>
+<tr><td>call030</td><td>9123456789</td><td>9876543210</td><td>20-01-2024 22:55:50</td><td>123</td><td>LOCAL</td><td>t001</td></tr>
+</tbody>
+</table>
+<button class="download-btn" onclick="downloadCSV('call_records', 'day_22_call_records.csv')">⬇️ Download call_records.csv</button>
+</div>
+
+<!-- TABLE 2: CUSTOMERS -->
+<div class="table-card">
+<h2>Table 2: customers (20 rows)</h2>
+<table id="customers">
+<thead>
+<tr>
+<th>phone_number</th>
+<th>customer_name</th>
+<th>plan_id</th>
+<th>circle</th>
+<th>registration_date</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>9876543210</td><td>rajesh kumar</td><td>P01</td><td>DELHI</td><td>2023-05-10</td></tr>
+<tr><td> 9988776655 </td><td>PRIYA SHARMA</td><td>p02</td><td>mumbai</td><td>15/06/2023</td></tr>
+<tr><td>9123456789</td><td> Amit Patel </td><td>P01</td><td>Gujarat</td><td>2023/08/20</td></tr>
+<tr><td>8765432109</td><td>sunita devi</td><td> P03 </td><td>BIHAR</td><td>10-09-2023</td></tr>
+<tr><td>7654321098</td><td>MOHAMMED ALI</td><td>p02</td><td>Kerala</td><td>2023-11-15</td></tr>
+<tr><td> 9876543211 </td><td>anita desai</td><td>P01</td><td>delhi</td><td>2023-06-22</td></tr>
+<tr><td>9988776656</td><td>VIKRAM SINGH</td><td>p03</td><td>MUMBAI</td><td>18/07/2023</td></tr>
+<tr><td> 9123456788 </td><td>Lakshmi Iyer</td><td>P02</td><td>Kerala</td><td>2023/09/15</td></tr>
+<tr><td>8765432108</td><td>ravi shankar</td><td>P01</td><td>GUJARAT</td><td>12-10-2023</td></tr>
+<tr><td>7654321099</td><td> DEEPA REDDY </td><td>p02</td><td>Bihar</td><td>2023-12-05</td></tr>
+<tr><td>9876543212</td><td>Karan Mehta</td><td> P03 </td><td>Delhi</td><td>2024-01-10</td></tr>
+<tr><td> 9988776657 </td><td>sneha gupta</td><td>P01</td><td>mumbai</td><td>20/01/2024</td></tr>
+<tr><td>9123456787</td><td>ARJUN NAIR</td><td>p02</td><td>KERALA</td><td>2024/02/08</td></tr>
+<tr><td>8765432107</td><td> Meera Shah </td><td>P01</td><td>Gujarat</td><td>15-02-2024</td></tr>
+<tr><td> 7654321097 </td><td>suresh kumar</td><td>P03</td><td>bihar</td><td>2024-03-12</td></tr>
+<tr><td>9876543213</td><td>POOJA VERMA</td><td>p01</td><td>DELHI</td><td>25/03/2024</td></tr>
+<tr><td>9988776658</td><td> Rohan Das </td><td>P02</td><td>Mumbai</td><td>2024/04/18</td></tr>
+<tr><td> 9123456786 </td><td>kavita pillai</td><td>P03</td><td>kerala</td><td>10-05-2024</td></tr>
+<tr><td>8765432106</td><td>NITIN YADAV</td><td>p01</td><td>Bihar</td><td>2024-06-15</td></tr>
+<tr><td>7654321096</td><td>Divya Joshi</td><td> P02 </td><td>Gujarat</td><td>22/07/2024</td></tr>
+</tbody>
+</table>
+<button class="download-btn" onclick="downloadCSV('customers', 'day_22_customers.csv')">⬇️ Download customers.csv</button>
+</div>
+
+<!-- TABLE 3: TOWERS -->
+<div class="table-card">
+<h2>Table 3: towers (15 rows)</h2>
+<table id="towers">
+<thead>
+<tr>
+<th>tower_id</th>
+<th>tower_location</th>
+<th>circle</th>
+<th>tower_type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>T001</td><td>Connaught Place</td><td>DELHI</td><td>4G</td></tr>
+<tr><td> t002 </td><td>BANDRA WEST</td><td>mumbai</td><td>5g</td></tr>
+<tr><td>T003</td><td> Ahmedabad City </td><td>Gujarat</td><td>4G</td></tr>
+<tr><td>t004</td><td>Patna Junction</td><td>BIHAR</td><td>3G</td></tr>
+<tr><td>T005</td><td>kochi marine drive</td><td>Kerala</td><td>4g</td></tr>
+<tr><td> T006 </td><td>Karol Bagh</td><td>delhi</td><td>4G</td></tr>
+<tr><td>t007</td><td>ANDHERI EAST</td><td>MUMBAI</td><td>5G</td></tr>
+<tr><td>T008</td><td>Satellite Road</td><td>Gujarat</td><td>4g</td></tr>
+<tr><td>T009</td><td> Boring Road </td><td>Bihar</td><td>3G</td></tr>
+<tr><td> t010 </td><td>ernakulam south</td><td>KERALA</td><td>4G</td></tr>
+<tr><td>T011</td><td>ROHINI SECTOR</td><td>Delhi</td><td>5g</td></tr>
+<tr><td>t012</td><td>Juhu Beach</td><td>mumbai</td><td>4G</td></tr>
+<tr><td> T013 </td><td>Vastrapur Lake</td><td>GUJARAT</td><td>4g</td></tr>
+<tr><td>T014</td><td>Gandhi Maidan</td><td>bihar</td><td>3G</td></tr>
+<tr><td>t015</td><td> Fort Kochi </td><td>Kerala</td><td>5G</td></tr>
+</tbody>
+</table>
+<button class="download-btn" onclick="downloadCSV('towers', 'day_22_towers.csv')">⬇️ Download towers.csv</button>
+</div>
+
+<!-- TABLE 4: PLANS -->
+<div class="table-card">
+<h2>Table 4: plans (3 rows)</h2>
+<table id="plans">
+<thead>
+<tr>
+<th>plan_id</th>
+<th>plan_name</th>
+<th>monthly_rental</th>
+<th>free_minutes</th>
+<th>rate_per_min</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>P01</td><td>Basic Plan</td><td>199.00</td><td>100</td><td>1.00</td></tr>
+<tr><td> p02 </td><td>PREMIUM PLAN</td><td>499.00</td><td>500</td><td>0.50</td></tr>
+<tr><td>P03</td><td>unlimited plan</td><td>799.00</td><td>NULL</td><td>0.00</td></tr>
+</tbody>
+</table>
+<button class="download-btn" onclick="downloadCSV('plans', 'day_22_plans.csv')">⬇️ Download plans.csv</button>
+</div>
+
+<!-- INSTRUCTIONS -->
+<div class="instructions">
+<h2>📖 How to Import Data</h2>
+
+<h3>MySQL:</h3>
+<div class="code-block">CREATE DATABASE bsnl_cdr;
+USE bsnl_cdr;
+
+CREATE TABLE call_records (
+    call_id VARCHAR(50),
+    caller_number VARCHAR(20),
+    receiver_number VARCHAR(20),
+    call_datetime VARCHAR(50),
+    duration_sec VARCHAR(10),
+    call_type VARCHAR(20),
+    tower_id VARCHAR(20)
+);
+
+LOAD DATA INFILE 'day_22_call_records.csv'
+INTO TABLE call_records
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS;</div>
+
+<h3>PostgreSQL:</h3>
+<div class="code-block">CREATE TABLE call_records (
+    call_id VARCHAR(50),
+    caller_number VARCHAR(20),
+    receiver_number VARCHAR(20),
+    call_datetime VARCHAR(50),
+    duration_sec VARCHAR(10),
+    call_type VARCHAR(20),
+    tower_id VARCHAR(20)
+);
+
+COPY call_records FROM '/path/to/day_22_call_records.csv'
+DELIMITER ',' CSV HEADER;</div>
+
+<p><strong>Note:</strong> All columns are VARCHAR to preserve messy data. Clean them in your queries!</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<p style="font-size: 18px; margin-bottom: 15px;">🔗 Connect with me</p>
+<a href="https://rahulkanche.github.io/100-days-sql-data/day-22-challenge.html">← Back to Challenge</a>
+<a href="https://linkedin.com/in/rahulkanche" target="_blank">LinkedIn</a>
+<a href="https://github.com/rahulkanche/100-days-sql-data" target="_blank">GitHub</a>
+<p style="margin-top: 20px; font-size: 14px; font-style: italic;">Rahul Kanche — exploring data, decoding clarity!</p>
+</div>
+
+</div>
+
+<script>
+function downloadCSV(tableId, filename) {
+    const table = document.getElementById(tableId);
+    let csv = [];
+    
+    const headers = [];
+    table.querySelectorAll('thead th').forEach(th => {
+        headers.push(th.textContent);
+    });
+    csv.push(headers.join(','));
+    
+    table.querySelectorAll('tbody tr').forEach(tr => {
+        const row = [];
+        tr.querySelectorAll('td').forEach(td => {
+            let cell = td.textContent;
+            if (cell.includes(',')) {
+                cell = '"' + cell + '"';
+            }
+            row.push(cell);
+        });
+        csv.push(row.join(','));
+    });
+    
+    const csvContent = csv.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
