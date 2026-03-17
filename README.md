@@ -1,96 +1,57 @@
-# 📚 100 Days SQL Challenge - Practice Datasets
+<div align="center">
 
-Welcome to the official data repository for the **100 Days SQL Challenge**!
+<h1>📚 100 Days SQL Challenge</h1>
+<p><b>Practice SQL with Real-World Datasets 🚀</b></p>
 
-## 🎯 About This Repository
+<a href="https://rahulkanche.github.io/100-days-sql-data/">
+  <img src="https://img.shields.io/badge/🌐 Live Website-Click Here-blue?style=for-the-badge">
+</a>
+<a href="#">
+  <img src="https://img.shields.io/badge/💡 Level-Beginner to Advanced-green?style=for-the-badge">
+</a>
+<a href="#">
+  <img src="https://img.shields.io/badge/📅 Days-100-orange?style=for-the-badge">
+</a>
 
-This repository hosts downloadable datasets for all 100 days of the SQL Coding Challenge. Each dataset contains real-world messy data that you can use to practice data cleaning, analysis, and transformation using SQL.
-
-## 🌐 Live Website
-
-**Access all datasets here:** https://rahulkanche.github.io/100-days-sql-data/
-
-## 📂 Repository Structure
-
-```
-100-days-sql-data/
-├── index.html              # Main landing page with all days
-├── day-01-data.html        # Day 1 dataset download page
-├── day-02-data.html        # Day 2 dataset download page
-├── ...
-├── day-12-data.html        # Day 12 dataset download page
-├── ...
-└── day-100-data.html       # Day 100 dataset download page
-```
-
-## 🚀 How to Use This Repository
-
-### For Learners:
-1. Visit the [live website](https://ra.github.io/100-days-sql-data/)
-2. Click on any day to view and download datasets
-3. Import the CSV files into your SQL database
-4. Practice solving the challenges
-5. Share your solutions on LinkedIn with **#100DaysSQLChallenge**
-
-### For Contributors:
-- All dataset pages are standalone HTML files
-- Each page includes table previews and CSV download functionality
-- No external dependencies required
-
-## 📊 Currently Available
-
-- ✅ **Day 12:** E-Commerce Data Cleaning Pipeline
-  - Complete data engineering project with messy transaction data
-  - [View Dataset](day-12-data.html)
-
-*More days coming soon...*
-
-## 🛠️ Technical Details
-
-- **Pure HTML/CSS/JavaScript** - No frameworks needed
-- **Client-side CSV generation** - No server required
-- **Hosted on GitHub Pages** - Free and fast
-- **Mobile responsive** - Works on all devices
-
-## 📖 About the Challenge
-
-The **100 Days SQL Challenge** is a comprehensive learning program covering:
-- Basic SELECT queries to complex window functions
-- Data cleaning and validation
-- JOINs, subqueries, and CTEs
-- Regular expressions (REGEXP)
-- Real-world data engineering scenarios
-- Interview preparation questions
-
-## 👨‍💻 Created By
-
-**Rahul Kanche**
-- *Exploring data, decoding clarity*
-- Connect on LinkedIn: www.linkedin.com/in/rahul-kanche
-- Follow the journey: #100DaysSQLChallenge
-
-## 📝 License
-
-This project is created for educational purposes. Feel free to:
-- ✅ Download and use datasets for learning
-- ✅ Share with fellow SQL learners
-- ✅ Practice and build your portfolio
-
-## 🤝 Contributing
-
-Found an issue or have suggestions?
-- Open an issue in this repository
-- All feedback is welcome!
-
-## 🌟 Support
-
-If this helps you learn SQL:
-- ⭐ Star this repository
-- 🔄 Share with your network
-- 💬 Tag me in your learning posts
+</div>
 
 ---
 
-**Happy Learning! Master SQL one day at a time! 🚀**
+## 🎯 About This Project
 
-*Repository maintained by Rahul Kanche | Last Updated: January 2026*
+<div style="background:#0d1117;padding:15px;border-radius:10px;border:1px solid #30363d">
+
+This repository provides **100 days of SQL practice datasets** designed with **real-world messy data**.
+
+✔ Data Cleaning  
+✔ Data Transformation  
+✔ Real-world SQL Problems  
+✔ Interview Preparation  
+
+</div>
+
+---
+
+## 🌐 Access Datasets
+
+<div align="center">
+
+<a href="https://rahulkanche.github.io/100-days-sql-data/">
+  <button style="padding:10px 20px;background:#238636;color:white;border:none;border-radius:8px;font-size:16px;cursor:pointer;">
+    🚀 Open Live Website
+  </button>
+</a>
+
+</div>
+
+---
+
+## 📂 Repository Structure
+
+```bash
+100-days-sql-data/
+├── index.html
+├── day-01-data.html
+├── day-02-data.html
+├── ...
+├── day-100-data.html
